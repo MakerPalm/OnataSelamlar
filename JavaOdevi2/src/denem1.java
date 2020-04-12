@@ -12,13 +12,14 @@ import java.util.Scanner;
 public class denem1 {
 
     public static void main(String[] args) throws Exception {
-        JavaOdevi2 yas = new JavaOdevi2(100);
+        JavaOdevi2 yas = new JavaOdevi2(2);
         KimlikNo Kimlik = new KimlikNo();
         KimlikNo Kimlik2 = new KimlikNo();
         IMEINo imei = new IMEINo();
         Telefon KisiTel = new Telefon();
         String Satir;
         int Sayac = 0;
+        int Yas2 = 0;
         Scanner Kisi = new Scanner(System.in);
         System.out.println("Üretilecek kişi sayısını giriniz : ");
         int UretKisi = Kisi.nextInt();
@@ -32,7 +33,8 @@ public class denem1 {
             System.out.print("T.C NO : ");
             Kimlik.Uret();
             System.out.print(" ");
-            System.out.print("  Adi : " + Satir + "  Yaş : " + yas.nextInt() + "  Telefon No : ");
+            Yas2 = yas.nextInt()+1;
+            System.out.print("  Adi : " + Satir + "  Yaş : "+Yas2 + "  Telefon No : ");
             KisiTel.numara();
             System.out.print(" ");
             System.out.print("IMEI NO : ");
