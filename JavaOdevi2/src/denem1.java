@@ -1,3 +1,4 @@
+
 import javaodevi2.JavaOdevi2;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +15,8 @@ public class denem1 {
         JavaOdevi2 yas = new JavaOdevi2(100);
         KimlikNo Kimlik = new KimlikNo();
         KimlikNo Kimlik2 = new KimlikNo();
-        Telefon KisiTel =  new Telefon();
+        IMEINo imei = new IMEINo();
+        Telefon KisiTel = new Telefon();
         String Satir;
         int Sayac = 0;
         Scanner Kisi = new Scanner(System.in);
@@ -26,23 +28,25 @@ public class denem1 {
         BufferedReader br = new BufferedReader(fr);
         Satir = br.readLine();
         while (Satir != null) {
-           Sayac++;
-           System.out.print("T.C NO : ");
-           Kimlik.Uret();
-           System.out.print(" ");
-           System.out.print("  Adi : "+Satir+"  Yaş : "+yas.nextInt()+"  Telefon No : ");   
-           KisiTel.numara();
-           System.out.print(" ");
-           System.out.println();
-           System.out.println("---------------------------------------------------");
-           Satir = br.readLine().toLowerCase();
-           
-           if(Sayac>UretKisi-1){
-               break;
-           }
+            Sayac++;
+            System.out.print("T.C NO : ");
+            Kimlik.Uret();
+            System.out.print(" ");
+            System.out.print("  Adi : " + Satir + "  Yaş : " + yas.nextInt() + "  Telefon No : ");
+            KisiTel.numara();
+            System.out.print(" ");
+            System.out.print("IMEI NO : ");
+            imei.imei();
+            System.out.print(" ");
+            System.out.println();
+            System.out.println("---------------------------------------------------");
+            Satir = br.readLine().toLowerCase();
+
+            if (Sayac > UretKisi - 1) {
+                break;
+            }
         }
-        
+
     }
 
 }
-
