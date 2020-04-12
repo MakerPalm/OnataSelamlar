@@ -11,52 +11,70 @@ import javaodevi2.JavaOdevi2;
  * @author marsh
  */
 public class IMEINo extends denem1 {
-        JavaOdevi2 random = new JavaOdevi2(18);
-        JavaOdevi2 random2 = new JavaOdevi2(18);
-        JavaOdevi2 random3 = new JavaOdevi2(10);
-        JavaOdevi2 random4 = new JavaOdevi2(10);
-        int pos;
-        int[] str;
-        int sum = 0;
-        int final_digit = 0;
-        int t = 0;
-        int len_offset = 0;
-        int len = 15;
-        int issuer;
-    public void imei() {
+
+    JavaOdevi2 IMEINo = new JavaOdevi2(9);
+    int SumDigit = 0;
+    int SumDigit2 = 0;
+    int[] digits;
+    int[] dg;
+
     
-        
-        str = new int[15];
-        
-        int[] rbi = {01, 10, 30, 33, 35, 44, 45, 49, 50, 51, 52, 53, 54, 86, 91, 98, 99};//
-        int arr = rbi[random.nextInt()];
-        str[0] = rbi[random.nextInt()%10];
-        str[1] = rbi[random2.nextInt()%10];
-        
-        for (int pos = 2; pos < len-1; pos++) {
-            str[pos] = random.nextInt()%10;
-        }
-        len_offset = (len + 1) % 2;
 
-        for (pos = 2; pos < len - 1; pos++) {
-            if ((pos + len_offset) % 2 == 1) {
-                t = str[pos] * 2;
-                if (t > 9) {
-                    t -= 9;
-                }
-                sum += t;
-            } else {
-                sum += str[pos];
+    public void ImeiUret() {
+        int cikacak = 0;
+    int yuvarlanmis = 0;
+        digits = new int[15];
+        dg = new int[15];
+        digits[14] = 0;
+        for (int i = 0; i < 14; i++) {
+            if (IMEINo.nextInt() + 1 == 0) {
+                continue;
             }
+            digits[i] = IMEINo.nextInt() + 1;
+            // 18 
         }
-        final_digit = (10 - (sum % 10)) % 10;
-        str[len - 1] = final_digit;
 
-        for (int i = 0; i < str.length; i++) {
-            str[i] = t++;
+        for (int i = 0; i < 14; i++) {
+            if (i % 2 == 1) {
+                SumDigit2 = digits[i] * 2;
+                if (digits[i] > 10) {
+                    digits[i] = digits[i] / 10;
+                    SumDigit2 = digits[i] + 1;
+                } else {
+                    SumDigit2 = digits[i];
+                }
+            } else {
+                SumDigit = digits[i];
+
+            }
+            yuvarlanmis = (int) Math.ceil(((digits[14] + 5) / 10) * 10);
+            cikacak = digits[14];
+
+            if (yuvarlanmis >= cikacak) {
+
+                digits[14] = yuvarlanmis - cikacak;
+
+            } else {
+
+                yuvarlanmis = (int) Math.ceil(((digits[14] + 5) / 10) * 10);
+                digits[14] = yuvarlanmis - cikacak;
+
+            }
+
         }
-        for (int i = 0; i < str.length - 1; i++) {
-            System.out.print(str[i]);
+
+        for (int i = 0; i < 15; i++) {
+            dg[i] = digits[i];
+            System.out.print(dg[i]);
+
         }
+        /*
+        Alt Taraf Debugging İçin
+         */
+        System.out.print("\n cikacak: " + cikacak);
+        System.out.print("\n yuvarlanmis: " + yuvarlanmis);
+        System.out.print("\n 15.eleman(yuvarlanmis - cikacak): " + digits[14]);
+
     }
+
 }

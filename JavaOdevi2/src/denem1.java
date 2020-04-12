@@ -36,7 +36,7 @@ public class denem1 {
             KisiTel.numara();
             System.out.print(" ");
             System.out.print("IMEI NO : ");
-            imei.imei();
+            imei.ImeiUret();
             System.out.print(" ");
             System.out.println();
             System.out.println("---------------------------------------------------");
