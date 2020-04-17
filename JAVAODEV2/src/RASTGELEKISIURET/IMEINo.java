@@ -10,7 +10,7 @@ import RASTGELEKISIURET.SimpleRandom;
  * @author marsh
  */
 public class IMEINo {
-    int[] digits;
+        int[] digits;
     int[] dg;
     SimpleRandom IMEINo = new SimpleRandom(8);
 
@@ -24,7 +24,8 @@ public class IMEINo {
         int bolunmus2 =0;
         int bolunmus3=0;
         int bolunmus4 =0;
-        int Toplam = 0;
+        int ikinciyuvarlanmis=0;
+        
        
         
         digits[14] = 0;
@@ -37,8 +38,9 @@ public class IMEINo {
         }
         
         
-        Toplam = (digits[0] + (((digits[1] * 2) % 10) + 1)) + (digits[2] + (((digits[3] * 2) % 10) + 1)) + (digits[4] + (((digits[5] * 2) % 10) + 1)) + (digits[6] + (((digits[7] * 2) % 10) + 1)) + (digits[8] + (((digits[9] * 2) % 10) + 1)) + (digits[10] + (((digits[11] * 2) % 10) + 1)) + (digits[12] + (((digits[13] * 2) % 10) + 1));
-        digits[14]=Toplam;  
+        digits[14] = ((digits[0]%10) +digits[0]/10 + ((digits[1]*2)%10)+(digits[1]*2)/10 + (digits[2]%10)+(digits[2]/10) + ((digits[3]*2)%10)+(digits[3]*2)/10 + (digits[4]%10)+digits[4]/10) + ((digits[5]*2)%10)+ (digits[5]*2)/10+(digits[6]%10) +digits[6]/10 + ((digits[7]*2)%10)+(digits[7]*2)/10 + (digits[8]%10)+(digits[8]/10) +
+                (digits[9]%10) +digits[9]/10 + ((digits[10]*2)%10)+(digits[10]*2)/10 + (digits[11]%10)+(digits[11]/10) +(digits[12]%10) +digits[12]/10 + ((digits[13]*2)%10)+(digits[13]*2)/10;
+                
         /*
         
         Alt Taraf Parçalamanın Doğru Mu Yanlış Mı Yapıldığına Dair Kontrol Değişkenleridir Debugging Kısmında Yazdırılır
@@ -49,9 +51,23 @@ public class IMEINo {
                  bolunmus3 =((digits[1]*2)%10);
                 bolunmus4=(digits[1]*2)/10;
                 
+                /*
                 
-       yuvarlanmis= (int)Math.ceil(((digits[14]+5)/10)*10);
-        cikacak=digits[14];
+                Son Eklediğim Kısım Altta yeni bir değişken oluşturdum ve değişkenin modunu bi sonraki 10 değerine eşit olana kadar arttırdım sonra yuvarlamışa eşitledim
+                */
+                
+               ikinciyuvarlanmis=digits[14];
+               
+               while(ikinciyuvarlanmis % 10 != 0){
+               ikinciyuvarlanmis += 1;
+               }
+                
+      /*            
+               
+               yuvarlanmis= (int)Math.ceil(((digits[14]+5)/10)*10);
+        */
+               yuvarlanmis=ikinciyuvarlanmis;
+               cikacak=digits[14];
        
         
         if(yuvarlanmis>=cikacak){
@@ -77,6 +93,7 @@ public class IMEINo {
         /*
         Alt Taraf Debugging İçin
         */
+        System.out.print("\n \n Debugging Değerleri: ");
         System.out.print("\n cikacak: "+cikacak);
         System.out.print("\n yuvarlanmis: "+yuvarlanmis);
         System.out.print("\n 15.eleman(yuvarlanmis - cikacak): "+digits[14]);
