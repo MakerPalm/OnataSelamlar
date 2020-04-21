@@ -1,16 +1,15 @@
 
+import RASTGELEKISIURET.IMEINo;
+import RASTGELEKISIURET.KimlikNo;
+import RASTGELEKISIURET.SimpleRandom;
+import RASTGELEKISIURET.Telefon;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 
-import RASTGELEKISIURET.SimpleRandom;
-import RASTGELEKISIURET.IMEINo;
-import RASTGELEKISIURET.KimlikNo;
-import RASTGELEKISIURET.Telefon;
 /**
- *
- * @author marsh
+ *  
  */
 public class MainClass {
     
@@ -53,5 +52,5 @@ public static void main(String[] args) throws Exception {
         }
 
     }
-
+    
 }
